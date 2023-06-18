@@ -1,21 +1,15 @@
-import { Box, Heading } from '@chakra-ui/react';
-import Searchbar from './components/Searchbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { Box } from '@chakra-ui/react';
+import Home from './routes/Home';
 
 const App = () => {
   return (
     <Box>
       <Header />
       <Box as='main' p={4} minH='calc(100vh - 70px - 70px)'>
-        <Box p='3'>
-          <Heading size='lg' mb='1' align='center'>
-            Aipply - Ai Job Board
-          </Heading>
-        </Box>
-        <Box as='section' p='3' mb='3'>
-          <Searchbar />
-        </Box>
+        {/* Home */}
+        <Home />
       </Box>
       <Footer />
     </Box>
