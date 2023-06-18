@@ -1,7 +1,7 @@
 import { Box, Heading } from '@chakra-ui/react';
+import Searchbar from './components/Searchbar';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Searchbar from './components/Searchbar';
 
 const App = () => {
   return (
