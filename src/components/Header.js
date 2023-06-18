@@ -1,4 +1,5 @@
 import { useMediaQuery, Container, Heading, HStack, Button, Link, Box } from '@chakra-ui/react';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 const Header = props => {
   const [isLargerThan600] = useMediaQuery(`(min-width: 600px)`);
@@ -23,6 +24,8 @@ const Header = props => {
               <Button size={size} to='/' as={Link}>
                 Home
               </Button>
+
+              <ColorModeSwitcher justifySelf='flex-end' size={size} />
             </HStack>
           </HStack>
         </Container>
