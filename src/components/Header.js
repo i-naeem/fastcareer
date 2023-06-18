@@ -11,11 +11,11 @@ const Header = props => {
         <Container maxW='container.xl'>
           <HStack justifyContent='space-between'>
             <Heading
-              as={Link}
-              bgClip='text'
-              href='/'
-              size={isLargerThan600 ? 'xl' : 'md'}
               bgGradient='linear(to-r, teal.500, green.500)'
+              size={isLargerThan600 ? 'xl' : 'md'}
+              bgClip='text'
+              as={Link}
+              href='/'
             >
               Aipply
             </Heading>
