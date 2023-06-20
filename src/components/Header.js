@@ -1,5 +1,6 @@
 import { useMediaQuery, Container, Heading, HStack, Button, Link, Box } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { APP_NAME } from '../constants';
 
 const Header = props => {
   const [isLargerThan600] = useMediaQuery(`(min-width: 600px)`);
@@ -12,12 +13,12 @@ const Header = props => {
           <HStack justifyContent='space-between'>
             <Heading
               bgGradient='linear(to-r, teal.500, green.500)'
-              size={isLargerThan600 ? 'xl' : 'md'}
+              size={isLargerThan600 ? 'md' : 'sm'}
               bgClip='text'
               as={Link}
               href='/'
             >
-              Aipply
+              {APP_NAME}
             </Heading>
 
             <HStack spacing={2}>
