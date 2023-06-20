@@ -1,15 +1,28 @@
-import { HStack, Input, InputGroup, InputRightElement, Select } from '@chakra-ui/react';
+import {
+  HStack,
+  Icon,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  InputRightElement,
+  Select,
+} from '@chakra-ui/react';
 import { FaSearch as SearchIcon } from 'react-icons/fa';
 import { filterOptions } from '../constants';
 
 const Searchbar = props => {
   return (
     <form>
-      <InputGroup mb='2'>
-        <Input id='search-input' placeholder='Enter your search query...' />
-        <InputRightElement>
-          <SearchIcon />
-        </InputRightElement>
+      <InputGroup mb='2' size='lg'>
+        <InputLeftElement>
+          <Icon as={SearchIcon} />
+        </InputLeftElement>
+        <Input
+          type='search'
+          id='search-input'
+          variant='outline'
+          placeholder='Enter your search query...'
+        />
       </InputGroup>
       <HStack>
         {filterOptions.map(filter => (
