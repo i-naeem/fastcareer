@@ -1,12 +1,4 @@
-import {
-  HStack,
-  Icon,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  InputRightElement,
-  Select,
-} from '@chakra-ui/react';
+import { HStack, Icon, Input, InputGroup, InputLeftElement, Select } from '@chakra-ui/react';
 import { FaSearch as SearchIcon } from 'react-icons/fa';
 import { filterOptions } from '../constants';
 
