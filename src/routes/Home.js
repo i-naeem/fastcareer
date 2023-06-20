@@ -1,27 +1,13 @@
-import { Box, HStack, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, HStack } from '@chakra-ui/react';
 import Searchbar from '../components/Searchbar';
-import CatImage from '../assets/cat.png';
+import CallToAction from '../components/CallToAction';
 
 const Home = props => {
   return (
     <>
       <Box p='3'>
         <HStack justify='space-between'>
-          <Box>
-            <Heading size='3xl' mb='3'>
-              Ready for a <br /> career change?
-            </Heading>
-            <Heading size='xl'>
-              Let us{' '}
-              <Text as='span' color='red.400'>
-                search
-              </Text>{' '}
-              one for you
-            </Heading>
-          </Box>
-          <Box>
-            <Image alt='A cat with laptop for decoration' src={CatImage} maxBlockSize='300' />
-          </Box>
+          <CallToAction />
         </HStack>
       </Box>
       <Box as='section' p='3' mb='3'>
