@@ -6,29 +6,34 @@ import {
   Button,
   Stack,
   Card,
-  Text,
-  Link,
+  Box,
+  HStack,
 } from '@chakra-ui/react';
 
 const JobCard = props => {
   return (
     <Card direction={{ base: 'column', sm: 'row' }} overflow='hidden' variant='filled' width='100%'>
-      <Stack>
+      <Stack width='100%'>
         <CardBody>
-          <Heading size='lg' as={Link}>
-            The perfect latte
-          </Heading>
-          <Text py='2'>
-            Caffè latte is a coffee beverage of Italian origin made with espresso and steamed milk.
-          </Text>
+          <HStack align='center' justify='space-between'>
+            <Box>
+              <Heading size='lg' mb='2' color='Highlight'>
+                Data Engineer at Meta
+              </Heading>
+              <Heading size='sm' color='GrayText'>
+                16 days ago
+              </Heading>
+            </Box>
+            <Box>
+              <Button colorScheme='green'>Apply Now</Button>
+            </Box>
+          </HStack>
         </CardBody>
-
         <CardFooter>
-          <ButtonGroup size='sm' variant='outline'>
-            <Button>Buy Latte</Button>
-            <Button>Buy Latte</Button>
-            <Button>Buy Latte</Button>
-            <Button>Buy Latte</Button>
+          <ButtonGroup colorScheme='orange' size='sm' variant='outline'>
+            <Button>Data Science</Button>
+            <Button>Web Scrapping</Button>
+            <Button>NLP</Button>
           </ButtonGroup>
         </CardFooter>
       </Stack>

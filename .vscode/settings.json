@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["Aipply", "Chakra", "Naeem"]
+  "cSpell.words": ["Aipply", "Chakra", "Naeem"],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
 }
