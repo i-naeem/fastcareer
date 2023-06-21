@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import {
   ButtonGroup,
   CardFooter,
   CardBody,
   Heading,
   Button,
+  HStack,
   Stack,
   Card,
   Box,
-  HStack,
 } from '@chakra-ui/react';
 
 const JobCard = props => {
@@ -17,7 +18,7 @@ const JobCard = props => {
         <CardBody>
           <HStack align='center' justify='space-between'>
             <Box>
-              <Heading size='lg' mb='2' color='Highlight'>
+              <Heading size='lg' mb='2' color='Highlight' as={Link} to='/jobs/1'>
                 Data Engineer at Meta
               </Heading>
               <Heading size='sm' color='GrayText'>

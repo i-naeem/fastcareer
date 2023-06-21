@@ -1,6 +1,7 @@
 import { useMediaQuery, Container, Heading, HStack, Button, Link, Box } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { APP_NAME } from '../constants';
+import { NavLink } from 'react-router-dom';
 
 const Header = props => {
   const [isLargerThan600] = useMediaQuery(`(min-width: 600px)`);
@@ -15,14 +16,14 @@ const Header = props => {
               bgGradient='linear(to-r, teal.500, green.500)'
               size={isLargerThan600 ? 'md' : 'sm'}
               bgClip='text'
-              as={Link}
-              href='/'
+              as={NavLink}
+              to='/'
             >
               {APP_NAME}
             </Heading>
 
             <HStack spacing={2}>
-              <Button size={size} to='/' as={Link}>
+              <Button size={size} to='/' as={NavLink}>
                 Home
               </Button>
 
