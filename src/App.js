@@ -1,7 +1,7 @@
+import { Box } from '@chakra-ui/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import NotFound from './routes/NotFound';
-import { Box } from '@chakra-ui/react';
 import Home from './routes/Home';
 import Job from './routes/Job';
 

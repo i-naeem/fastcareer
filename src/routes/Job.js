@@ -1,7 +1,11 @@
-import { Box, Heading, List, ListItem, Text } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, List, ListItem, Text, useDisclosure } from '@chakra-ui/react';
 import JobCard from '../components/JobCard';
+import CoverLetterDrawer from '../components/CoverLetterDrawer';
+import { useRef } from 'react';
 
 const Job = props => {
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  const btnRef = useRef();
   const data = {
     id: 1,
     company: 'Meta',
@@ -46,6 +50,12 @@ const Job = props => {
           incidunt aliquid rerum cumque.
         </Text>
       </Box>
+      <Flex justifyContent='end'>
+        <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+          Write me cover letter
+        </Button>
+      </Flex>
+      <CoverLetterDrawer isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
     </Box>
   );
 };
