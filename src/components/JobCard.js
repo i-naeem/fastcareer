@@ -29,7 +29,7 @@ const JobCard = props => {
           </HStack>
         </CardBody>
         <CardFooter>
-          <ButtonGroup colorScheme='orange' size='sm' variant='outline'>
+          <ButtonGroup colorScheme='orange' size='xs' variant='outline'>
             <Button>Data Science</Button>
             <Button>Web Scrapping</Button>
             <Button>NLP</Button>
