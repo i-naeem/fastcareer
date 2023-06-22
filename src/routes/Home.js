@@ -1,9 +1,13 @@
 import JobCard from '../components/JobCard';
+import { Box, Stack } from '@chakra-ui/react';
 import Searchbar from '../components/Searchbar';
 import CallToAction from '../components/CallToAction';
-import { Box, Stack } from '@chakra-ui/react';
 
-const Home = props => {
+const Home = ({ isError, isLoading, posts }) => {
+  if (isError || isLoading) {
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <>
       <Box p='3' as='section'>
@@ -14,12 +18,7 @@ const Home = props => {
       </Box>
       <Box p='3' as='section'>
         <Box>
-          <Stack align='start'>
-            <JobCard />
-            <JobCard />
-            <JobCard />
-            <JobCard />
-          </Stack>
+          <Stack align='start'>{posts && posts.map(post => <JobCard post={post} />)}</Stack>
         </Box>
       </Box>
     </>
