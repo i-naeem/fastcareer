@@ -14,42 +14,56 @@ import {
 import { Link as RLink } from 'react-router-dom';
 import _ from 'lodash';
 
-const JobCard = ({ post }) => {
+const JobCard = ({ post, isJobPage }) => {
   const { colorMode } = useColorMode();
 
   return (
     <Card
       direction={{ base: 'column', sm: 'row' }}
       overflow='hidden'
-      variant='outline'
-      borderColor={colorMode === 'light' ? 'ActiveBorder' : ''}
-      backgroundColor={colorMode === 'light' ? 'gray.200' : ''}
+      variant={isJobPage ? '' : 'outline'}
+      borderColor={colorMode === 'light' && !isJobPage ? 'ActiveBorder' : ''}
+      backgroundColor={colorMode === 'light' && !isJobPage ? 'gray.200' : ''}
       width='100%'
     >
       <Stack width='100%'>
         <CardBody>
           <HStack align='start' justify='space-between' pb='2'>
             <Box>
-              <Link as={RLink} to={`/posts/${post.jid}`}>
-                <Heading size='lg' mb='3'>
+              <Link as={RLink} to={`/posts/${post.id}`}>
+                <Heading size='lg' mb='3' textAlign={isJobPage ? 'center' : 'left'}>
                   {post.title} at {post.company}
                 </Heading>
               </Link>
 
-              <Text textAlign='justify' maxW='80ch' color='GrayText'>
-                {post.description}
-              </Text>
+              {isJobPage ? (
+                ''
+              ) : (
+                <Text textAlign='justify' maxW='80ch' color='GrayText'>
+                  {post.excerpt.replace(/_|-|:/gi, '')}
+                </Text>
+              )}
             </Box>
-            <Box>
-              <Button colorScheme='green'>Apply Now</Button>
-            </Box>
+            {isJobPage ? (
+              ''
+            ) : (
+              <Box>
+                <Button colorScheme='green' as={Link} target='_blank' href={post.source}>
+                  Apply Now
+                </Button>
+              </Box>
+            )}
           </HStack>
 
-          <ButtonGroup colorScheme='orange' size='xs' variant='outline'>
-            {_.sampleSize(post.skills, 4).map((c, i) => (
-              <Button key={i}>{c}</Button>
-            ))}
-          </ButtonGroup>
+          {isJobPage ? (
+            ''
+          ) : (
+            <ButtonGroup colorScheme='orange' size='xs' variant='outline'>
+              {_.sampleSize(post.skills, 4).map((c, i) => (
+                <Button key={i}>{c}</Button>
+              ))}
+            </ButtonGroup>
+          )}
         </CardBody>
       </Stack>
     </Card>

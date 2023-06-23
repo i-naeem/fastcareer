@@ -4,13 +4,12 @@ import CoverLetterDrawer from '../components/CoverLetterDrawer';
 import {
   Box,
   Flex,
-  List,
   Text,
   Button,
   Heading,
-  ListItem,
   ButtonGroup,
   useDisclosure,
+  Link,
 } from '@chakra-ui/react';
 import useFetch from 'react-fetch-hook';
 import { useParams } from 'react-router-dom';
@@ -28,31 +27,26 @@ const Job = props => {
     return <h1>Loading...</h1>;
   }
   return (
-    <Box>
+    <Box pt='5'>
       <Box mb='4'>
-        <JobCard post={post} />
-      </Box>
-      <Box mb='4'>
-        <Heading size='lg' mb='2'>
-          About {post.company}
-        </Heading>
-        <Text fontSize='md'>{post.about_company}</Text>
+        <JobCard post={post} isJobPage />
       </Box>
       <Box mb='4'>
         <Heading size='lg' mb='2'>
           Job Description
         </Heading>
-        <Text fontSize='md'>{post.description}</Text>
+        <Text fontSize='md' dangerouslySetInnerHTML={{ __html: post.description }} />
       </Box>
-      {post.education ? (
-        <ListWrapper heading='Education Requirements' items={post.education} />
+      {post.skills?.length !== 0 ? (
+        <ListWrapper heading='Skills Required' items={post.skills} />
       ) : (
         ''
       )}
-      {post.skills ? <ListWrapper heading='Skills Required' items={post.skills} /> : ''}
-      <Flex justifyContent='end'>
+      <Flex justifyContent='end' pb='4'>
         <ButtonGroup>
-          <Button colorScheme='green'>Apply Now</Button>
+          <Button colorScheme='green' as={Link} target='_blank' href={post.source}>
+            Apply Now
+          </Button>
           <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
             Write me cover letter
           </Button>
