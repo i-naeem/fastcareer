@@ -9,15 +9,22 @@ import {
   Text,
   Button,
 } from '@chakra-ui/react';
+import useFetch from 'react-fetch-hook';
+import { useParams } from 'react-router-dom';
 
 function CoverLetterDrawer({ isOpen, onClose, btnRef }) {
+  const params = useParams();
+  const { isLoading, post, error } = useFetch(
+    `https://localhost:5000/cover-letter/${params.post_id}`,
+  );
+
   return (
     <>
       <Drawer isOpen={isOpen} placement='right' onClose={onClose} finalFocusRef={btnRef} size='lg'>
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader>Cover Letter</DrawerHeader>
 
           <DrawerBody>
             <Text>

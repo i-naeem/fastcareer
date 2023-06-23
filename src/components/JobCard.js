@@ -10,9 +10,11 @@ import {
   CardBody,
   ButtonGroup,
   useColorMode,
+  VStack,
 } from '@chakra-ui/react';
 import { Link as RLink } from 'react-router-dom';
 import _ from 'lodash';
+import { FaGlobeAfrica } from 'react-icons/fa';
 
 const JobCard = ({ post, isJobPage }) => {
   const { colorMode } = useColorMode();
@@ -31,10 +33,13 @@ const JobCard = ({ post, isJobPage }) => {
           <HStack align='start' justify='space-between' pb='2'>
             <Box>
               <Link as={RLink} to={`/posts/${post.id}`}>
-                <Heading size='lg' mb='3' textAlign={isJobPage ? 'center' : 'left'}>
+                <Heading size='lg' mb='3'>
                   {post.title} at {post.company}
                 </Heading>
               </Link>
+              <Heading mb='3' size='md' color='GrayText'>
+                {post.location}
+              </Heading>
 
               {isJobPage ? (
                 ''
@@ -54,16 +59,11 @@ const JobCard = ({ post, isJobPage }) => {
               </Box>
             )}
           </HStack>
-
-          {isJobPage ? (
-            ''
-          ) : (
-            <ButtonGroup colorScheme='orange' size='xs' variant='outline'>
-              {_.sampleSize(post.skills, 4).map((c, i) => (
-                <Button key={i}>{c}</Button>
-              ))}
-            </ButtonGroup>
-          )}
+          <ButtonGroup colorScheme='orange' size='xs' variant='outline'>
+            {_.sampleSize(post.skills, 4).map((c, i) => (
+              <Button key={i}>{c}</Button>
+            ))}
+          </ButtonGroup>
         </CardBody>
       </Stack>
     </Card>

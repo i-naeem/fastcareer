@@ -5,9 +5,11 @@ import Searchbar from '../components/Searchbar';
 import CallToAction from '../components/CallToAction';
 import { useState } from 'react';
 import _ from 'lodash';
+import { useParams } from 'react-router-dom';
 
-const Home = props => {
-  const { data, isLoading, error } = useFetch('http://localhost:5000/posts');
+const SearchPage = ({ setEndpoint }) => {
+  const params = useParams();
+  const { data, isLoading, error } = useFetch(`http://localhost:5000/query/${params.q}`);
 
   const [location, setLocation] = useState('');
 
@@ -21,7 +23,7 @@ const Home = props => {
         <CallToAction />
       </Box>
       <Box as='section' p='3' mb='3'>
-        <Searchbar onLocationChange={onLocationChange} />
+        <Searchbar onLocationChange={onLocationChange} q={params.q} setEndpoint={setEndpoint} />
       </Box>
       <Box p='3' as='section'>
         <Box>
@@ -39,4 +41,4 @@ const Home = props => {
   );
 };
 
-export default Home;
+export default SearchPage;
