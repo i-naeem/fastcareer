@@ -59,12 +59,13 @@ const Searchbar = props => {
           <option value='Lahore'>Lahore</option>
         </Select>
       </Flex>
-      <HStack mb='2'>
+      <HStack pb='5'>
         {filterOptions.map(filter => (
           <SelectWrapper key={filter.id} filter={filter} onChange={onFilterChange} />
         ))}
       </HStack>
-      <ButtonGroup size='xs'>
+      <ButtonGroup size='sm'>
+        {filters.length ? <Button variant='ghost'> Filters</Button> : null}
         {filters.map((filter, idx) => (
           <Button
             key={idx}
