@@ -4,6 +4,7 @@ const SelectWrapper = ({ filter, onChange }) => {
   return (
     <Select
       key={filter.options}
+      maxW='25ch'
       placeholder={filter.placeholder}
       onChange={event => onChange(filter.type, event.target.value)}
     >

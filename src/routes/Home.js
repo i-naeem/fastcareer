@@ -3,10 +3,15 @@ import { Box, Stack } from '@chakra-ui/react';
 import Searchbar from '../components/Searchbar';
 import CallToAction from '../components/CallToAction';
 
-const Home = ({ isError, isLoading, posts }) => {
-  if (isError || isLoading) {
-    return <h1>Loading...</h1>;
-  }
+const Home = props => {
+  const posts = [
+    {
+      id: 1,
+      title: 'Data Engineer',
+      company: 'Meta',
+      categories: ['Python', 'Java', 'Github'],
+    },
+  ];
 
   return (
     <>
