@@ -1,8 +1,13 @@
 import { Select } from '@chakra-ui/react';
-const SelectWrapper = ({ placeholder, options }) => {
+
+const SelectWrapper = ({ filter, onChange }) => {
   return (
-    <Select placeholder={placeholder} key={options}>
-      {options.map((option, idx) => (
+    <Select
+      key={filter.options}
+      placeholder={filter.placeholder}
+      onChange={event => onChange(filter.type, event.target.value)}
+    >
+      {filter.options.map((option, idx) => (
         <option key={idx} value={option}>
           {option}
         </option>
