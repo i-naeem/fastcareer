@@ -1,35 +1,11 @@
+import useFetch from 'react-fetch-hook';
 import JobCard from '../components/JobCard';
 import { Box, Stack } from '@chakra-ui/react';
 import Searchbar from '../components/Searchbar';
 import CallToAction from '../components/CallToAction';
 
 const Home = props => {
-  const posts = [
-    {
-      id: 1,
-      title: 'Data Engineer',
-      company: 'Meta',
-      categories: ['Python', 'Java', 'Github'],
-    },
-    {
-      id: 55555,
-      title: 'Data Engineer',
-      company: 'Meta',
-      categories: ['Python', 'Java', 'Github'],
-    },
-    {
-      id: 55,
-      title: 'Data Engineer',
-      company: 'Meta',
-      categories: ['Python', 'Java', 'Github'],
-    },
-    {
-      id: 333,
-      title: 'Data Engineer',
-      company: 'Meta',
-      categories: ['Python', 'Java', 'Github'],
-    },
-  ];
+  const { isLoading, data, error } = useFetch('http://localhost:5000/posts');
 
   return (
     <>
@@ -41,7 +17,7 @@ const Home = props => {
       </Box>
       <Box p='3' as='section'>
         <Box>
-          <Stack align='start'>{posts && posts.map(post => <JobCard post={post} />)}</Stack>
+          <Stack align='start'>{data && data.map(post => <JobCard post={post} />)}</Stack>
         </Box>
       </Box>
     </>

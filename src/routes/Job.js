@@ -12,19 +12,21 @@ import {
   ButtonGroup,
   useDisclosure,
 } from '@chakra-ui/react';
+import useFetch from 'react-fetch-hook';
+import { useParams } from 'react-router-dom';
+import ListWrapper from '../components/ListWrapper';
 
-const Job = ({ isError, isLoading, posts }) => {
+const Job = props => {
+  const { post_id } = useParams();
   const { isOpen, onClose, onOpen } = useDisclosure();
   const btnRef = useRef();
-  const post = {
-    id: 1,
-    title: 'Data Engineer',
-    company: 'Meta',
-    skills: ['Python', 'Java', 'Github'],
-    categories: ['Python', 'Java', 'Github'],
-    education: ['Python', 'Java', 'Github'],
-  };
 
+  console.log(post_id);
+  const { isLoading, error, data: post } = useFetch(`http://localhost:5000/posts/${post_id}`);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <Box>
       <Box mb='4'>
@@ -34,51 +36,20 @@ const Job = ({ isError, isLoading, posts }) => {
         <Heading size='lg' mb='2'>
           About {post.company}
         </Heading>
-        <Text fontSize='md'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ad labore facilis
-          expedita, fugit itaque explicabo laborum! In harum ut voluptate culpa nulla error quia!
-          Impedit porro eveniet nemo ratione asperiores quidem perspiciatis molestiae eaque facilis
-          atque dicta facere dolorum veniam, accusantium a magnam nihil odio id? Eaque minus ullam
-          sit quasi. Odio totam delectus veniam, labore minima ut quod dolore commodi perferendis
-          amet? Hic rerum possimus illo cumque, laborum quidem unde cupiditate, nihil impedit
-          perferendis nam aspernatur quae maiores odio quas esse similique. Eveniet, velit natus
-          animi a ea sequi perferendis illo delectus nisi illum nesciunt et maxime molestias?
-        </Text>
+        <Text fontSize='md'>{post.about_company}</Text>
       </Box>
       <Box mb='4'>
         <Heading size='lg' mb='2'>
           Job Description
         </Heading>
-        <Text fontSize='md'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id perferendis soluta deserunt,
-          reiciendis, fugiat dicta iste, quia quod doloremque incidunt earum quasi. Ducimus
-          distinctio reprehenderit delectus qui consequuntur adipisci exercitationem voluptatem
-          tempore nostrum iure quae perspiciatis sequi atque alias nisi quaerat, id blanditiis.
-          Laboriosam quidem nobis animi. Quaerat quibusdam, expedita doloremque beatae sit illo quos
-          saepe laudantium temporibus quidem molestias ad recusandae harum delectus rem debitis a
-          obcaecati? Perferendis, animi?
-        </Text>
+        <Text fontSize='md'>{post.description}</Text>
       </Box>
-      <Box mb='4'>
-        <Heading size='lg' mb='2'>
-          Skills
-        </Heading>
-        <List>
-          {post.skills.map((s, i) => (
-            <ListItem key={i}>{s}</ListItem>
-          ))}
-        </List>
-      </Box>
-      <Box mb='4'>
-        <Heading size='lg' mb='2'>
-          Education
-        </Heading>
-        <List>
-          {post.education.map((s, i) => (
-            <ListItem key={i}>{s}</ListItem>
-          ))}
-        </List>
-      </Box>
+      {post.education ? (
+        <ListWrapper heading='Education Requirements' items={post.education} />
+      ) : (
+        ''
+      )}
+      {post.skills ? <ListWrapper heading='Skills Required' items={post.skills} /> : ''}
       <Flex justifyContent='end'>
         <ButtonGroup>
           <Button colorScheme='green'>Apply Now</Button>

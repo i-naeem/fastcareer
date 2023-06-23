@@ -30,17 +30,14 @@ const JobCard = ({ post }) => {
         <CardBody>
           <HStack align='start' justify='space-between' pb='2'>
             <Box>
-              <Link as={RLink} to={`/posts/${post.id}`}>
+              <Link as={RLink} to={`/posts/${post.jid}`}>
                 <Heading size='lg' mb='3'>
                   {post.title} at {post.company}
                 </Heading>
               </Link>
 
               <Text textAlign='justify' maxW='80ch' color='GrayText'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem soluta sequi explicabo!
-                Nobis eaque fuga aspernatur voluptate expedita illum non dolorem doloremque
-                explicabo quis? Nihil, voluptates! Harum odit necessitatibus quis suscipit sunt,
-                voluptatibus eaque dolorum soluta atque asperiores earum.
+                {post.description}
               </Text>
             </Box>
             <Box>
@@ -49,7 +46,7 @@ const JobCard = ({ post }) => {
           </HStack>
 
           <ButtonGroup colorScheme='orange' size='xs' variant='outline'>
-            {_.sampleSize(post.categories, 4).map((c, i) => (
+            {_.sampleSize(post.skills, 4).map((c, i) => (
               <Button key={i}>{c}</Button>
             ))}
           </ButtonGroup>
