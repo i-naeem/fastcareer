@@ -1,5 +1,6 @@
 import {
   Box,
+  Link,
   Card,
   Text,
   Stack,
@@ -8,7 +9,6 @@ import {
   Heading,
   CardBody,
   ButtonGroup,
-  Link,
   useColorMode,
 } from '@chakra-ui/react';
 import { Link as RLink } from 'react-router-dom';

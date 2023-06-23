@@ -9,7 +9,7 @@ const Header = props => {
   const size = isLargerThan600 ? 'md' : 'xs';
   return (
     <Box>
-      <Box p={2} d='flex' as='header' shadow='sm' height={70} alignItems='center'>
+      <Box p={2} d='flex' as='header' shadow='sm' alignItems='center'>
         <Container maxW='container.xl'>
           <HStack justifyContent='space-between'>
             <Heading
