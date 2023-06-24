@@ -47,9 +47,9 @@ const Job = props => {
           <Button colorScheme='green' as={Link} target='_blank' href={post.source}>
             Apply Now
           </Button>
-          {/* <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
+          <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
             Write me cover letter
-          </Button> */}
+          </Button>
         </ButtonGroup>
       </Flex>
       <CoverLetterDrawer isOpen={isOpen} onClose={onClose} btnRef={btnRef} />
