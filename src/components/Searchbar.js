@@ -14,6 +14,9 @@ const Searchbar = ({ onLocationChange, q, setEndpoint }) => {
     }
     navigate(`/search/${q}`);
   };
+
+  const locations = ['Karachi', 'Malakand', 'Faisalabad', 'Multan', 'Gujranwala', 'Sialkot', 'Rawalpindi', 'Islamabad', 'Peshawar', 'Lahore', 'Quetta', 'Multiple Cities']
+  const options = locations.map((location,idx) => <option key={idx} value={location}>{location}</option>)
   return (
     <form onSubmit={onSearch}>
       <Flex>
@@ -38,7 +41,7 @@ const Searchbar = ({ onLocationChange, q, setEndpoint }) => {
           placeholder='Location'
           onChange={onLocationChange}
         >
-          <option value='Lahore'>Lahore</option>
+          {options}
         </Select>
       </Flex>
     </form>
