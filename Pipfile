@@ -7,6 +7,7 @@ name = "pypi"
 httpx = "*"
 beautifulsoup4 = "*"
 requests = "*"
+flask = "*"
 
 [dev-packages]
 
