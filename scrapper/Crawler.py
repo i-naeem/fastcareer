@@ -1,7 +1,8 @@
+import abc
 import httpx
 
 
-class Crawler:
+class Crawler(abc.ABC):
     def __init__(self, name, start_urls):
         self.name = name
         self.start_urls = start_urls
@@ -14,6 +15,10 @@ class Crawler:
                 response = httpx.get(url)
                 self.visited.add(url)
                 yield response.content
+
+    @abc.abstractmethod
+    def parse(self, content):
+        pass
 
     def __repr__(self) -> str:
         return f'{self.__class__.__name__}(name={self.name!r}, start_urls={self.start_urls!r})'
