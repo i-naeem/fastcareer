@@ -1,5 +1,6 @@
-import abc
+from bs4 import BeautifulSoup
 import httpx
+import abc
 
 
 class Crawler(abc.ABC):
@@ -7,17 +8,15 @@ class Crawler(abc.ABC):
         self.name = name
         self.start_urls = start_urls
 
-        self.visited = set()
-
     def crawl(self):
         for url in self.start_urls:
-            if url not in self.visited:
-                response = httpx.get(url)
-                self.visited.add(url)
-                yield response.content
+            response = httpx.get(url)
+            self.visited.add(url)
+
+            yield self.parse(BeautifulSoup(response.content, 'html.parser'))
 
     @abc.abstractmethod
-    def parse(self, content):
+    def parse(self, content: BeautifulSoup):
         pass
 
     def __repr__(self) -> str:
