@@ -8,6 +8,8 @@ httpx = "*"
 beautifulsoup4 = "*"
 requests = "*"
 flask = "*"
+python-dotenv = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
