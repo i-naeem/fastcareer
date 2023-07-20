@@ -14,4 +14,7 @@ def create_app():
 
     app.register_blueprint(blueprint=api, url_prefix="/api")
 
+    with app.app_context():
+        db.create_all()
+
     return app
