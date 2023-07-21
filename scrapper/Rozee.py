@@ -22,6 +22,7 @@ def get_posts():
             title=post['title'],
             location=post['city'],
             company=post['company'],
-            last_date=post['applyBy'],
+            deadline=post['applyBy'],
+            source=post['permaLink'],
             description=post["description"],
         )
