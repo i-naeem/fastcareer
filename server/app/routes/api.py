@@ -1,4 +1,5 @@
 from app.models.Job import Job
+from datetime import datetime
 from flask import Blueprint
 from flask import request
 from app import db
@@ -13,10 +14,11 @@ def posts():
             d = request.get_json()
             j = Job(
                 description=d['description'],
-                deadline=d['deadline'],
                 company=d['company'],
                 source=d['source'],
                 title=d['title'],
+
+                deadline=datetime.fromisoformat(d['deadline']),
             )
 
             db.session.add(j)
