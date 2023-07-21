@@ -1,7 +1,7 @@
-from app import db
 from app.models.Job import Job
 from flask import Blueprint
 from flask import request
+from app import db
 
 api = Blueprint('api', __name__)
 
