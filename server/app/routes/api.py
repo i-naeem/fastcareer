@@ -30,4 +30,8 @@ def posts():
             print(e)
             return dict(message=str(e)), 301
 
-    return []
+    results = db.session.execute(db.select(Job)).scalars()
+    return [
+        dict(title=result.title, description=result.description)
+        for result in results
+    ]

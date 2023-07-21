@@ -8,3 +8,7 @@ content-type: application/json
     "deadline": "2023-08-21",
     "description": "Web Designer will be there for your"
 }
+
+###
+
+GET http://localhost:5000/api/posts
