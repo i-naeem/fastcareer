@@ -1,0 +1,10 @@
+POST http://localhost:5000/api/posts
+content-type: application/json
+
+{
+    "company": "Meta",
+    "source": "example.com",
+    "title": "Web Designer",
+    "deadline": "2023-08-21",
+    "description": "Web Designer will be there for your"
+}
