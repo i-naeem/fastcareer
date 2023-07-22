@@ -13,3 +13,6 @@ content-type: application/json
 ###
 
 GET http://localhost:5000/posts
+
+###
+GET http://localhost:5000/search?q=Marketing
