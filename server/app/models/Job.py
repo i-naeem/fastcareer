@@ -11,5 +11,6 @@ class Job(db.Model):
     source = db.Column(db.String, nullable=False)
     deadline = db.Column(db.Date, nullable=False)
     company = db.Column(db.String, nullable=False)
+    location = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
     created_at = db.Column(db.Date, default=datetime.today)
