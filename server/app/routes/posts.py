@@ -9,7 +9,7 @@ from app import db
 posts = Blueprint('/posts', __name__)
 
 
-@posts.post('/posts')
+@posts.post('/')
 def create_post():
     try:
         d = request.get_json()
