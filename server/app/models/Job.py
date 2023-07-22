@@ -8,9 +8,9 @@ db: sqlalchemy
 class Job(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String, nullable=False)
-    source = db.Column(db.String, nullable=False)
     deadline = db.Column(db.Date, nullable=False)
     company = db.Column(db.String, nullable=False)
     location = db.Column(db.String, nullable=False)
     description = db.Column(db.String, nullable=False)
     created_at = db.Column(db.Date, default=datetime.today)
+    source = db.Column(db.String, nullable=False, unique=True)

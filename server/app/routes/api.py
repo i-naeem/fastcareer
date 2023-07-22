@@ -1,3 +1,4 @@
+from sqlalchemy.exc import IntegrityError
 from app.models.Job import Job
 from datetime import datetime
 from flask import Blueprint
@@ -26,6 +27,7 @@ def posts():
 
         return dict(message="Job Added Successfully")
 
+    except IntegrityError as e:
+        return dict(message="the job already exists in the database"), 401
     except Exception as e:
-        print(e)
-        return dict(message=str(e)), 301
+        return dict(message=str(e)), 401
