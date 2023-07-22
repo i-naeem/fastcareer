@@ -1,3 +1,0 @@
-# Aipply
-
-> Ai Job Board
