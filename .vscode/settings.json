@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["httpx", "SQLALCHEMY"]
+  "cSpell.words": ["httpx", "SQLALCHEMY"],
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
 }

@@ -10,6 +10,10 @@ import {
   Container,
   InputGroup,
   Card,
+  SimpleGrid,
+  CardHeader,
+  CardBody,
+  CardFooter,
 } from '@chakra-ui/react';
 import CatImage from '../assets/cat.png';
 import { ColorModeSwitcher } from '../components/ColorModeSwitcher';
@@ -53,6 +57,24 @@ export default function Root(props) {
             </Button>
           </InputGroup>
         </Box>
+
+        <SimpleGrid spacing={2}>
+          <Card maxW='300px' size='sm'>
+            <CardBody>
+              <Heading size='md' mb='2'>
+                Web Developer
+              </Heading>
+              <Text size='sm'>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, in?
+              </Text>
+            </CardBody>
+            <CardFooter>
+              <Button colorScheme='green' size='xs'>
+                Apply Now
+              </Button>
+            </CardFooter>
+          </Card>
+        </SimpleGrid>
       </main>
 
       <footer></footer>
