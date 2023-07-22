@@ -22,7 +22,7 @@ def get_posts():
             title=post['title'],
             location=post['city'],
             company=post['company'],
-            deadline=post['applyBy'],
             source=post['permaLink'],
             description=post["description"],
+            deadline=post['applyBy'].split('T')[0],
         )
