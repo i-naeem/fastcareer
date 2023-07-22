@@ -14,6 +14,7 @@ def posts():
             d = request.get_json()
             j = Job(
                 description=d['description'],
+                location=d['location'],
                 company=d['company'],
                 source=d['source'],
                 title=d['title'],
